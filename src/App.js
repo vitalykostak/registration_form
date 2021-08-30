@@ -1,23 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import RegisterForm from './components/RegisterForm/';
+
+import AuthHelper from './helpers/AuthHelper';
+import AuthSevice from './services/AuthService';
+
+import './App.scss';
 
 function App() {
+  const confirmRegistration = ({
+    gender,
+    email,
+    password,
+    confirmPassword,
+  }) => {
+    if (gender === null) {
+      throw {
+        entity: 'gender',
+        errMsg: 'You have not chosen a gender',
+      };
+    }
+
+    if (!AuthHelper.isValidEmail(email)) {
+      throw { entity: 'email', errMsg: 'Invalid email' };
+    }
+
+    if (!AuthHelper.isValidPasswordLength(password)) {
+      throw { entity: 'password', errMsg: 'Invalid length' };
+    }
+
+    if (!AuthHelper.isSamePasswords(password, confirmPassword)) {
+      throw {
+        entity: 'confirmPassword',
+        errMsg: 'Password mismatch',
+      };
+    }
+
+    AuthSevice.register(gender, email, password);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <RegisterForm onSubmit={confirmRegistration} />
     </div>
   );
 }

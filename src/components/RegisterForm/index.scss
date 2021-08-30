@@ -1,0 +1,262 @@
+$mainColor: #5b5b5b;
+$additionalColor: #c1c1c1;
+$primarySuccess: #3c9c41;
+$lightenPrimarySuccess: #4db252;
+$darkenPrimarySuccess: #318636;
+$dangerColor: #d23737;
+
+.register-form {
+  padding: 1rem 1.6rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  color: $mainColor;
+
+  @media (min-width: 570px) {
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+  }
+
+  &__logo {
+    width: 54.5px;
+
+    @media (min-width: 570px) {
+      width: 80px;
+    }
+  }
+
+  &__title {
+    margin-top: 1.6rem;
+    margin-bottom: 1.7rem;
+
+    color: inherit;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+
+    @media (min-width: 570px) {
+      margin-bottom: 3.5rem;
+    }
+  }
+
+  &__entity {
+    margin-bottom: 1.6rem;
+
+    width: 100%;
+
+    @media (min-width: 570px) {
+      margin-bottom: 3rem;
+    }
+
+    &--invalid {
+      color: $dangerColor;
+
+      .register-form__input:focus,
+      .register-form__input:active {
+        border-color: inherit;
+      }
+    }
+  }
+
+  &__entity:not(.register-form__entity--invalid) {
+    .register-form__input {
+      &:focus,
+      &:active {
+        border: 1px solid $primarySuccess;
+        box-shadow: none;
+      }
+    }
+    .ant-input-affix-wrapper {
+      &:hover {
+        color: inherit;
+        border-color: inherit;
+      }
+      &-focused {
+        color: inherit;
+        border-color: $primarySuccess;
+        &:hover {
+          border-color: $primarySuccess;
+        }
+      }
+    }
+  }
+
+  &__entity-title {
+    margin-bottom: 0.7rem;
+
+    color: $mainColor;
+    font-size: 1.6rem;
+    font-weight: 700;
+
+    @media (min-width: 570px) {
+      font-size: 1.8rem;
+      margin-bottom: 1.2rem;
+    }
+  }
+
+  &__field-error-message {
+    margin-bottom: 0;
+    color: $dangerColor;
+    font-size: 1.6rem;
+  }
+
+  &__gender-options {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__gender {
+    padding: 0.8rem 1.5rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    width: 29.2%;
+
+    border: 1px solid $additionalColor;
+    border-radius: 16px;
+
+    @media (min-width: 570px) {
+      padding-top: 2rem;
+
+      width: 31.2%;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &--active {
+      color: $primarySuccess;
+      border-color: $primarySuccess;
+
+      &:hover {
+        cursor: default;
+      }
+    }
+  }
+
+  &__gender-icon {
+    margin-bottom: 0.7rem;
+
+    height: 3.2rem;
+  }
+
+  &__gender-label {
+    margin-bottom: 0;
+
+    font-size: 1.6rem;
+
+    @media (min-width: 570px) {
+      font-size: 1.8rem;
+    }
+  }
+
+  .ant-input-affix-wrapper {
+    &:hover {
+      color: inherit;
+      border-color: inherit;
+    }
+    &-focused {
+      color: inherit;
+      border-color: inherit;
+    }
+  }
+
+  .ant-input,
+  .ant-input:hover,
+  .ant-input:hover:focus .ant-input:active {
+    color: inherit;
+    border-color: inherit;
+    box-shadow: none;
+    outline: none;
+  }
+  &__input {
+    height: 5rem;
+
+    color: inherit;
+    border-radius: 16px;
+
+    border: 1px solid;
+
+    box-shadow: none !important;
+
+    @media (min-width: 570px) {
+      height: 6.4rem;
+    }
+
+    &::placeholder {
+      color: $additionalColor;
+    }
+
+    &:hover {
+      border: 1px solid;
+    }
+    &:focus,
+    &:active {
+      border: 1px solid;
+    }
+  }
+
+  &__field-error-message {
+    margin-top: 0.8rem;
+  }
+
+  &__eye-icon {
+    height: 1.6rem;
+  }
+
+  &__confirm-button {
+    margin-top: 0.3rem;
+
+    width: 100%;
+    height: 5rem;
+
+    font-size: 1.6rem;
+    color: #fff;
+    font-weight: 700;
+
+    background-color: $primarySuccess;
+    border-radius: 16px;
+
+    &:hover {
+      background-color: $lightenPrimarySuccess;
+    }
+
+    &:active {
+      background-color: $darkenPrimarySuccess;
+    }
+
+    @media (min-width: 570px) {
+      margin-bottom: 1rem;
+      height: 7rem;
+    }
+  }
+
+  &__extra-action-text {
+    margin-top: 1.41rem;
+    margin-bottom: 0;
+
+    font-size: 1.4rem;
+    color: $mainColor;
+
+    @media (min-width: 570px) {
+      margin-top: 2rem;
+      font-size: 1.8rem;
+    }
+  }
+
+  &__extra-action-link {
+    color: $primarySuccess;
+    text-decoration: underline;
+
+    &:hover {
+      color: $primarySuccess;
+      text-decoration: underline;
+    }
+  }
+}
